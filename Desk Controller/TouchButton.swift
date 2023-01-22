@@ -1,10 +1,3 @@
-//
-//  TouchButton.swift
-//  Desk Controller
-//
-//  Created by David Williames on 10/1/21.
-//
-
 import Cocoa
 
 class TouchButton: NSButton {

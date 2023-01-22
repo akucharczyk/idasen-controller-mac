@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2674C60F2948FF23006DC74D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2674C60E2948FF22006DC74D /* Notification.swift */; };
 		6310F76F2849DAD100F3D9BB /* MoveDeskToHeightCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6310F76E2849DAD100F3D9BB /* MoveDeskToHeightCommand.swift */; };
 		7D03619E25AC39B80051FB71 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D03619D25AC39B80051FB71 /* Preferences.swift */; };
 		7D0361A225AC42610051FB71 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0361A025AC42610051FB71 /* PreferencesWindowController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2674C60E2948FF22006DC74D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		6310F76E2849DAD100F3D9BB /* MoveDeskToHeightCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveDeskToHeightCommand.swift; sourceTree = "<group>"; };
 		7D03619D25AC39B80051FB71 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		7D0361A025AC42610051FB71 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
@@ -136,9 +138,12 @@
 				7D0361A525AC42690051FB71 /* Preferences */,
 				7D93E29025AAB38D00F37364 /* Info.plist */,
 				7D93E29125AAB38D00F37364 /* Desk_Controller.entitlements */,
+				2674C60E2948FF22006DC74D /* Notification.swift */,
 			);
+			indentWidth = 2;
 			path = "Desk Controller";
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		7DA9470625AD8EDA000B4816 /* AppleScript Commands */ = {
 			isa = PBXGroup;
@@ -258,6 +263,7 @@
 				7D03619E25AC39B80051FB71 /* Preferences.swift in Sources */,
 				7D81872025ABE9FF0076DC19 /* BluetoothManager.swift in Sources */,
 				7D93E2A425AB244500F37364 /* EventMonitor.swift in Sources */,
+				2674C60F2948FF23006DC74D /* Notification.swift in Sources */,
 				7DA9470025AD3462000B4816 /* MoveDeskCommand.swift in Sources */,
 				7D93E29D25AB0BBB00F37364 /* DeskController.swift in Sources */,
 				7D93E28825AAB38B00F37364 /* AppDelegate.swift in Sources */,
@@ -329,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -384,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -400,18 +406,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Desk Controller/Desk_Controller.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = 3P725D2V7A;
+				DEVELOPMENT_TEAM = K9WPDQN4YU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Desk Controller/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.davidwilliames.Desk-Controller";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antonikucharczyk.desk-controller";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -424,18 +432,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Desk Controller/Desk_Controller.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = 3P725D2V7A;
+				DEVELOPMENT_TEAM = K9WPDQN4YU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Desk Controller/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.davidwilliames.Desk-Controller";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antonikucharczyk.desk-controller";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

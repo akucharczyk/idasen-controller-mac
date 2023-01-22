@@ -1,10 +1,3 @@
-//
-//  Extensions.swift
-//  Desk Controller
-//
-//  Created by David Williames on 11/1/21.
-//
-
 import Foundation
 
 extension Data {
@@ -57,5 +50,9 @@ extension Date {
         let minutes = calendar.component(.minute, from: self)
         let components = DateComponents(hour: 1, minute: -minutes)
         return calendar.date(byAdding: components, to: self) ?? self
+    }
+    
+    func adding(minutes: Int) -> Date {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
     }
 }

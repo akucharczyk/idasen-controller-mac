@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,11 @@
                 <outlet property="autoStandIntervalStepper" destination="ggi-1R-wj8" id="AUQ-FA-tgx"/>
                 <outlet property="currentHeightField" destination="dSd-Fl-ODs" id="oOZ-tl-A7C"/>
                 <outlet property="openAtLoginCheckbox" destination="gnX-fs-m9E" id="vUK-gn-HKD"/>
+                <outlet property="sitDownIntervalLabel" destination="Z2a-GK-cMr" id="iO8-Xc-Jn4"/>
+                <outlet property="sitDownIntervalStepper" destination="JTN-4f-RsX" id="s2c-rl-K6g"/>
                 <outlet property="sittingHeightField" destination="gvS-lt-sfD" id="xq8-4Y-OYz"/>
+                <outlet property="standUpIntervalLabel" destination="Tfm-0R-2YN" id="CV3-Wa-SoI"/>
+                <outlet property="standUpIntervalStepper" destination="KzD-tL-sVL" id="Hou-DO-zPE"/>
                 <outlet property="standingHeightField" destination="QUY-8t-Wgs" id="AEV-gC-Ota"/>
                 <outlet property="unitsPopUpButton" destination="UBS-N7-nAN" id="10V-Xy-96L"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
@@ -26,14 +30,14 @@
         <window identifier="PreferencesControllerId" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" rightStrut="YES" topStrut="YES"/>
-            <rect key="contentRect" x="2129" y="992" width="265" height="398"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
+            <rect key="contentRect" x="2129" y="992" width="265" height="495"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="5120" height="1415"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="265" height="398"/>
+                <rect key="frame" x="0.0" y="0.0" width="265" height="495"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sc5-lH-IW6">
-                        <rect key="frame" x="18" y="360" width="104" height="16"/>
+                        <rect key="frame" x="18" y="457" width="104" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Standing height:" id="Ic3-Mz-Mlw">
                             <font key="font" usesAppearanceFont="YES"/>
@@ -42,7 +46,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUY-8t-Wgs">
-                        <rect key="frame" x="145" y="357" width="100" height="21"/>
+                        <rect key="frame" x="145" y="454" width="100" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="mEN-r9-2Vs">
                             <font key="font" metaFont="system"/>
@@ -54,7 +58,7 @@
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-Z2-T1W">
-                        <rect key="frame" x="18" y="329" width="104" height="16"/>
+                        <rect key="frame" x="18" y="426" width="104" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Sitting height:" id="ms6-Qo-GGH">
                             <font key="font" usesAppearanceFont="YES"/>
@@ -63,7 +67,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvS-lt-sfD">
-                        <rect key="frame" x="145" y="326" width="100" height="21"/>
+                        <rect key="frame" x="145" y="423" width="100" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="vhr-dw-Fb0">
                             <font key="font" metaFont="system"/>
@@ -75,7 +79,7 @@
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4o-dX-fBQ">
-                        <rect key="frame" x="38" y="125" width="103" height="16"/>
+                        <rect key="frame" x="38" y="222" width="103" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Activity timeout:" id="mp5-eb-NG2">
                             <font key="font" usesAppearanceFont="YES"/>
@@ -84,7 +88,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XtZ-dx-Zv5">
-                        <rect key="frame" x="18" y="298" width="104" height="16"/>
+                        <rect key="frame" x="18" y="395" width="104" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Units:" id="hWq-YF-PhL">
                             <font key="font" usesAppearanceFont="YES"/>
@@ -93,7 +97,7 @@
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBS-N7-nAN">
-                        <rect key="frame" x="142" y="292" width="107" height="25"/>
+                        <rect key="frame" x="142" y="389" width="107" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="cm" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="v3V-zl-5WP" id="TJa-vC-6O8">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -110,7 +114,7 @@
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZo-Vb-hHK">
-                        <rect key="frame" x="18" y="264" width="104" height="16"/>
+                        <rect key="frame" x="18" y="361" width="104" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Current height:" id="8ML-Vw-t7i">
                             <font key="font" usesAppearanceFont="YES"/>
@@ -119,7 +123,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSd-Fl-ODs">
-                        <rect key="frame" x="145" y="261" width="100" height="21"/>
+                        <rect key="frame" x="145" y="358" width="100" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="xL4-H6-un6">
                             <font key="font" metaFont="system"/>
@@ -131,7 +135,7 @@
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KM3-wE-FMs">
-                        <rect key="frame" x="18" y="205" width="229" height="39"/>
+                        <rect key="frame" x="18" y="302" width="229" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" title="To calibrate the correct height of the desk, measure the current distance from floor to the desktop and enter the value." id="dQi-9h-xvZ">
                             <font key="font" textStyle="footnote" name=".SFNS-Regular"/>
@@ -140,26 +144,26 @@
                         </textFieldCell>
                     </textField>
                     <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="stF-ff-gMM">
-                        <rect key="frame" x="20" y="50" width="225" height="5"/>
+                        <rect key="frame" x="20" y="147" width="225" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </box>
                     <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="80h-wD-iJo">
-                        <rect key="frame" x="20" y="186" width="225" height="5"/>
+                        <rect key="frame" x="20" y="283" width="225" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </box>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gnX-fs-m9E">
-                        <rect key="frame" x="18" y="19" width="205" height="18"/>
+                        <rect key="frame" x="18" y="116" width="145" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Open Desk Controller at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Llu-P8-H6I">
+                        <buttonCell key="cell" type="check" title="Notification Interval" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Llu-P8-H6I">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="toggledOpenAtLoginCheckbox:" target="-2" id="OcY-Tj-57s"/>
+                            <action selector="toggledNotificationCheckbox:" target="-2" id="ORF-Iq-84j"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zid-bM-9JT">
-                        <rect key="frame" x="18" y="153" width="150" height="18"/>
+                        <rect key="frame" x="18" y="250" width="150" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Automatically stand:" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iDo-G5-iCI">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -170,7 +174,7 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXK-Qb-7OG">
-                        <rect key="frame" x="18" y="67" width="229" height="39"/>
+                        <rect key="frame" x="18" y="164" width="229" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" title="Automatically raise the desk the specified number of minutes per hour if the computer is active." id="1Ee-wo-6JK">
                             <font key="font" textStyle="footnote" name=".SFNS-Regular"/>
@@ -179,7 +183,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTv-2D-mHb">
-                        <rect key="frame" x="194" y="148" width="32" height="22"/>
+                        <rect key="frame" x="194" y="245" width="32" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" state="on" alignment="right" title="59" id="E7E-c7-FaI">
                             <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="dd6-Ee-2gP"/>
@@ -189,7 +193,7 @@
                         </textFieldCell>
                     </textField>
                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggi-1R-wj8">
-                        <rect key="frame" x="229" y="147" width="19" height="28"/>
+                        <rect key="frame" x="229" y="244" width="19" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <stepperCell key="cell" continuous="YES" alignment="left" increment="5" minValue="5" maxValue="55" doubleValue="10" id="92t-O6-c0r"/>
                         <connections>
@@ -197,7 +201,7 @@
                         </connections>
                     </stepper>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X6K-r1-L6E">
-                        <rect key="frame" x="194" y="119" width="32" height="22"/>
+                        <rect key="frame" x="194" y="216" width="32" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" state="on" alignment="right" title="59" id="dME-eH-SLK">
                             <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="d69-YI-d8s"/>
@@ -207,11 +211,80 @@
                         </textFieldCell>
                     </textField>
                     <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QVO-aT-Ri9">
-                        <rect key="frame" x="229" y="118" width="19" height="28"/>
+                        <rect key="frame" x="229" y="215" width="19" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <stepperCell key="cell" continuous="YES" alignment="left" increment="5" minValue="5" maxValue="60" doubleValue="10" id="At4-ul-AS4"/>
                         <connections>
                             <action selector="changedAutoStandInactiveStepper:" target="-2" id="jPd-ZJ-kBp"/>
+                        </connections>
+                    </stepper>
+                    <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="w5O-eg-BCf">
+                        <rect key="frame" x="20" y="50" width="225" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </box>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5y-do-rUI">
+                        <rect key="frame" x="18" y="19" width="205" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Open Desk Controller at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Sct-l7-kp7">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="toggledOpenAtLoginCheckbox:" target="-2" id="u8m-Ue-xv5"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XdT-vm-UVi">
+                        <rect key="frame" x="38" y="92" width="134" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Stand Up Notification" id="doU-wY-mrR">
+                            <font key="font" usesAppearanceFont="YES"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-0R-2YN">
+                        <rect key="frame" x="194" y="86" width="32" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" state="on" alignment="right" title="59" id="kkn-VS-wux">
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="OA1-Kd-glJ"/>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KzD-tL-sVL">
+                        <rect key="frame" x="229" y="85" width="19" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" increment="5" minValue="5" maxValue="60" doubleValue="10" id="3aj-oN-ak1"/>
+                        <connections>
+                            <action selector="changedNotficationStandUpIntervalStepper:" target="-2" id="su2-QS-SnZ"/>
+                        </connections>
+                    </stepper>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBJ-DC-bwA">
+                        <rect key="frame" x="38" y="67" width="132" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Sit Down Notification" id="qzi-k4-rhb">
+                            <font key="font" usesAppearanceFont="YES"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2a-GK-cMr">
+                        <rect key="frame" x="194" y="61" width="32" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" state="on" alignment="right" title="59" id="o5o-dG-ifo">
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="OaD-Tq-s77"/>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JTN-4f-RsX">
+                        <rect key="frame" x="229" y="60" width="19" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" increment="5" minValue="5" maxValue="60" doubleValue="10" id="cZF-7r-HWb"/>
+                        <connections>
+                            <action selector="changedNotificationSitDownIntervalStepper:" target="-2" id="uRN-4A-TII"/>
                         </connections>
                     </stepper>
                 </subviews>
@@ -219,7 +292,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="-231.5" y="276"/>
+            <point key="canvasLocation" x="-231.5" y="324.5"/>
         </window>
     </objects>
 </document>

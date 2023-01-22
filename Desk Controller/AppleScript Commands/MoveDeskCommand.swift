@@ -1,10 +1,3 @@
-//
-//  ScriptableCommands.swift
-//  Desk Controller
-//
-//  Created by David Williames on 12/1/21.
-//
-
 import Foundation
 
 class MoveDeskCommand: NSScriptCommand {

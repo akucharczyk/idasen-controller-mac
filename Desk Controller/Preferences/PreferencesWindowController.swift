@@ -1,11 +1,5 @@
-//
-//  PreferencesWindowController.swift
-//  Desk Controller
-//
-//  Created by David Williames on 11/1/21.
-//
-
 import Cocoa
+import UserNotifications
 
 class PreferencesWindowController: NSWindowController {
     
@@ -20,10 +14,15 @@ class PreferencesWindowController: NSWindowController {
     @IBOutlet weak var autoStandIntervalLabel: NSTextField!
     @IBOutlet weak var autoStandInactiveStepper: NSStepper!
     @IBOutlet weak var autoStandInactiveLabel: NSTextField!
+    @IBOutlet weak var standUpIntervalStepper: NSStepper!
+    @IBOutlet weak var standUpIntervalLabel: NSTextField!
+    @IBOutlet weak var sitDownIntervalStepper: NSStepper!
+    @IBOutlet weak var sitDownIntervalLabel: NSTextField!
     
     @IBOutlet weak var openAtLoginCheckbox: NSButton!
     
     static let sharedInstance = PreferencesWindowController(windowNibName: "PreferencesWindowController")
+    let un = UNUserNotificationCenter.current()
     
     var deskController: DeskController? {
         didSet {
@@ -53,6 +52,8 @@ class PreferencesWindowController: NSWindowController {
         autoStandEnabledCheckbox.state = Preferences.shared.automaticStandEnabled ? .on : .off
         autoStandIntervalStepper.intValue = Int32(Preferences.shared.automaticStandPerHour / 60)
         autoStandInactiveStepper.intValue = Int32(Preferences.shared.automaticStandInactivity / 60)
+        standUpIntervalStepper.intValue = Int32(Preferences.shared.standUpInterval / 60)
+        sitDownIntervalStepper.intValue = Int32(Preferences.shared.sitDownInterval / 60)
         
         updateLabels()
         
@@ -83,6 +84,10 @@ class PreferencesWindowController: NSWindowController {
             Preferences.shared.automaticStandPerHour / 60)
         autoStandInactiveLabel.stringValue = String(format: "%.f",
             Preferences.shared.automaticStandInactivity / 60)
+        standUpIntervalLabel.stringValue = String(format: "%.f",
+            Preferences.shared.standUpInterval / 60)
+        sitDownIntervalLabel.stringValue = String(format: "%.f",
+            Preferences.shared.sitDownInterval / 60)
 
         let autoEnabled = Preferences.shared.automaticStandEnabled
         autoStandInactiveLabel.textColor = autoEnabled ? .labelColor : .disabledControlTextColor
@@ -156,5 +161,20 @@ class PreferencesWindowController: NSWindowController {
         Preferences.shared.openAtLogin = sender.state == .on
     }
     
+    @IBAction func changedNotficationStandUpIntervalStepper(_ sender: NSStepper) {
+        let newInactive = Double(standUpIntervalStepper.intValue)
+        Preferences.shared.standUpInterval = newInactive * 60
+        updateLabels()
+    }
     
+    @IBAction func changedNotificationSitDownIntervalStepper(_ sender: NSStepper) {
+        let newInactive = Double(sitDownIntervalStepper.intValue)
+        Preferences.shared.sitDownInterval = newInactive * 60
+        updateLabels()
+    }
+    
+    @IBAction func toggledNotificationCheckbox(_ sender: NSButton) {
+        Preferences.shared.notifcationEnabled = sender.state == .on
+    }
+
 }

@@ -1,10 +1,3 @@
-//
-//  PositionPreferences.swift
-//  Desk Controller
-//
-//  Created by David Williames on 11/1/21.
-//
-
 import Foundation
 import LaunchAtLogin
 
@@ -22,6 +15,10 @@ class Preferences {
     private let automaticStandKey = "automaticStandValue"
     private let automaticStandInactivityKey = "automaticStandInactivityKey"
     private let automaticStandEnabledKey = "automaticStandEnabledKey"
+
+    private let notificationKey = "notificationKey"
+    private let sitDownIntervalKey = "sitDownIntervalKey"
+    private let standUpIntervalKey = "standUpIntervalKey"
     
     private let offsetKey = "positionOffsetValue"
     
@@ -83,6 +80,50 @@ class Preferences {
         set {
             //print("Save new Automatic stand inactivity: \(newValue)")
             UserDefaults.standard.setValue(newValue, forKey: automaticStandInactivityKey)
+        }
+    }
+
+    var sitDownInterval: TimeInterval {
+        get {
+            if let inactiveTime = UserDefaults.standard.value(forKey: sitDownIntervalKey) {
+                return inactiveTime as! TimeInterval
+            }
+            return 5 * 60 // Default min
+        }
+        
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: sitDownIntervalKey)
+        }
+    }
+    
+    var standUpInterval: TimeInterval {
+        get {
+            if let inactiveTime = UserDefaults.standard.value(forKey: standUpIntervalKey) {
+                return inactiveTime as! TimeInterval
+            }
+            return 5 * 60 // Default min
+        }
+        
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: standUpIntervalKey)
+        }
+    }
+    
+    var notifcationEnabled: Bool {
+        get {
+            if let notifcationEnabled = UserDefaults.standard.value(forKey: notificationKey) {
+                return notifcationEnabled as! Bool
+            }
+            return false // Default disabled
+        }
+        
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: notificationKey)
+            // Notification start timer
+            if(newValue) {
+                DeskController.shared?.notification.requestAuthorization()
+            }
+            
         }
     }
     

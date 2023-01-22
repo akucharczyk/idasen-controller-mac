@@ -34,12 +34,6 @@ class AutoStand: NSObject {
             }
             
             upTimer = Timer.init(fire: nextUp, interval: oneHour, repeats: true, block: {_ in
-                
-                let lastEvent = CGEventSource.secondsSinceLastEventType(CGEventSourceStateID.hidSystemState, eventType: CGEventType(rawValue: ~0)!)
-
-                if  lastEvent < Preferences.shared.automaticStandInactivity {
-                    DeskController.shared?.moveToPosition(.stand)
-                }
                 // print("Fired up timer: \(Date())")
             })
             upTimer?.tolerance = 10

@@ -3,11 +3,12 @@
 
 
 This is a Mac Status Bar application for controlling your [IKEA IDÅSEN (Linak) Desk](https://www.ikea.com/au/en/p/idasen-desk-sit-stand-black-beige-s79280979/)
+Should also work with other Linak Desk
 
 If you find this at least a little bit useful, why don't you help me out by:
 * Starring this project
-* Shout me a cup of coffee via [PayPal](https://paypal.me/dtw/5)
-* Follow me on Twitter [@davidwilliames](https://twitter.com/davidwilliames)
+* Shout me a cup of coffee via [PayPal](https://www.paypal.com/paypalme/antoniku)
+* Follow me on Twitter [@antoni_ku](https://twitter.com/antoni_ku)
 
 
 [**Download latest release**](https://github.com/DWilliames/idasen-controller/releases/latest/download/Desk.Controller.app.zip)
@@ -71,7 +72,7 @@ Other info:
 
 If you want to interact with your Desk via AppleScript; you can talk directly through the 'Desk Controller' mac app.
 
-This is great for setting up an  [Alfred App](https://www.alfredapp.com) workflow
+This is great for setting up an  [Raycast](https://www.raycast.com) workflow
 
 #### Commands:
 
