@@ -1,10 +1,3 @@
-//
-//  MoveDeskToHeightCommand.swift
-//  Desk Controller
-//
-//  Created by David Williames on 3/6/2022.
-//
-
 import Foundation
 
 

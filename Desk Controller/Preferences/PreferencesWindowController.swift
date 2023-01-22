@@ -1,10 +1,3 @@
-//
-//  PreferencesWindowController.swift
-//  Desk Controller
-//
-//  Created by David Williames on 11/1/21.
-//
-
 import Cocoa
 import UserNotifications
 
