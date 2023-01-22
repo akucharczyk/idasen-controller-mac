@@ -921,7 +921,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="260"/>
+            <point key="canvasLocation" x="74.5" y="260"/>
         </scene>
     </scenes>
     <resources>

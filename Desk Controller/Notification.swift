@@ -8,58 +8,84 @@
 import Foundation
 import UserNotifications
 
-class Notification: NSObject {
-    let un = UNUserNotificationCenter.current()
-    
-    func requestAuthorization() {
-        un.requestAuthorization(options: [.alert, .sound], completionHandler: { (auth, error) in
-            if(!auth) {
-                return print("Auth false")
-            }
-    
-            print("Auth true")
-        });
-    }
-    
-    func sitDownTimer() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Preferences.shared.standUpInterval) {
-            self.notification(title: "Sit Down", subtitle: "")
-        }
-    }
-    
-    func standUpTimer() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Preferences.shared.standUpInterval) {
-            self.notification(title: "Stand Up", subtitle: "")
-        }
-    }
-    
-    func notification(
-        title: String,
-        subtitle: String
-    ) {
-        un.getNotificationSettings {(settings) in
-            if settings.authorizationStatus == .authorized {
-                let notificationContent = UNMutableNotificationContent()
-                
-                notificationContent.title = title
-                notificationContent.subtitle = subtitle
-                notificationContent.sound = UNNotificationSound.default
-                
-                let units: Set<Calendar.Component> = [.hour, .day, .month, .year]
-                let comps = Calendar.current.dateComponents(units, from: Date())
 
-                
-                let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
-                let id = "standUp"
-                let request = UNNotificationRequest(identifier: id, content: notificationContent, trigger: trigger)
-                
-                self.un.add(request) {(error) in
-                    if error != nil {
-                        print(error?.localizedDescription as Any)
-                    }
-                }
-            }
-        }
-    }
+class Notification: NSObject {
+  let un = UNUserNotificationCenter.current()
+  var viewController: ViewController?
+  var timer: Timer?
+  
+  
+  
+  func requestAuthorization() {
+    un.requestAuthorization(options: [.alert, .sound], completionHandler: { (auth, error) in
+      if(!auth) {
+        return print("Auth false")
+      }
+      
+      print("Auth true")
+    });
+  }
+  
+  func sitDownTimer() {
+    invalidateNotification(identifier: "STAND_UP")
     
+    sendNotificationAfterDelay(
+      title: "Sit Down",
+      body: "It`s time to Sit Down",
+      seconds: Preferences.shared.sitDownInterval,
+      identifier: "SIT_DOWN",
+      action: UNNotificationAction(
+        identifier: "SIT_DOWN_ACTION",
+        title: "Sit Down",
+        options: []
+      )
+    )
+  }
+  
+  
+  func standUpTimer() {
+    invalidateNotification(identifier: "SIT_DOWN")
+    
+    sendNotificationAfterDelay(
+      title: "Stand Up",
+      body: "It`s time to Stand Up",
+      seconds: Preferences.shared.sitDownInterval,
+      identifier: "STAND_UP",
+      action: UNNotificationAction(
+        identifier: "STAND_UP_ACTION",
+        title: "Stand Up",
+        options: []
+      )
+    )
+  }
+  
+  func sendNotificationAfterDelay(title: String, body: String, seconds: Double, identifier: String, action: UNNotificationAction) {
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+    let content = UNMutableNotificationContent()
+    content.title = title
+    content.body = body
+    content.categoryIdentifier = "DESK_NOTIFICATION"
+    
+    let deskActionCategory = UNNotificationCategory(
+      identifier: "DESK_NOTIFICATION",
+      actions: [action],
+      intentIdentifiers: [],
+      hiddenPreviewsBodyPlaceholder: "",
+      options: .customDismissAction
+    )
+    
+    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+    
+    let notificationCenter = UNUserNotificationCenter.current()
+    notificationCenter.add(request) { (error) in
+      if let error = error {
+        print("Error: \(error)")
+      }
+    }
+    notificationCenter.setNotificationCategories([deskActionCategory])
+  }
+  
+  func invalidateNotification(identifier: String) {
+    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+  }
 }

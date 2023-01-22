@@ -18,7 +18,7 @@ class MoveDeskToHeightCommand: NSScriptCommand {
         
         var height: Float?
         
-        print("Move desk to: \(parameter)")
+        // print("Move desk to: \(parameter)")
         
         if parameter.hasSuffix("cm") {
             height = Float(parameter.dropLast(2))
