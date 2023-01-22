@@ -32,6 +32,7 @@ class DeskController: NSObject {
     let desk: DeskPeripheral
     
     let autoStand: AutoStand
+    let notification: Notification
     
     let distanceOffset: Float = 0.5 // e.g if we're within this of the distance and it's currently moving then we can probably stop
     let minDurationIncrements: TimeInterval = 0.5
@@ -49,6 +50,7 @@ class DeskController: NSObject {
         self.lastMoveTime = Date().addingTimeInterval(-minDurationIncrements)
         self.previousMovementIncrement = minMovementIncrements
         self.autoStand = AutoStand()
+        self.notification = Notification()
         super.init()
         
         desk.onPositionChange = { position in
@@ -118,6 +120,19 @@ class DeskController: NSObject {
     func moveToPosition(_ position: Position) {
         movingToPosition = position
         // print("Move to position: \(position)")
+        
+        if (!Preferences.shared.notifcationEnabled) {
+            return
+        }
+        
+        switch position {
+            case .sit:
+                DeskController.shared?.notification.standUpTimer()
+            case .stand:
+                DeskController.shared?.notification.sitDownTimer()
+            default:
+                return
+        }
     }
     
     func moveToHeight(_ height: Float) {

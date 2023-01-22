@@ -58,4 +58,8 @@ extension Date {
         let components = DateComponents(hour: 1, minute: -minutes)
         return calendar.date(byAdding: components, to: self) ?? self
     }
+    
+    func adding(minutes: Int) -> Date {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
+    }
 }

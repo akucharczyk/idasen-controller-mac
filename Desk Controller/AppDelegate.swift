@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import UserNotifications
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -13,15 +14,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
+    var notification = Notification()
     
     var viewController: ViewController?
     
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationDidFinishLaunching(_ aNotification: AppKit.Notification) {
+        UNUserNotificationCenter.current().delegate = self
         
         // If it's the first launch set the value for Open at Login to true
         if Preferences.shared.isFirstLaunch {
             Preferences.shared.openAtLogin = true
             Preferences.shared.isFirstLaunch = false
+        }
+        
+        if(Preferences.shared.notifcationEnabled) {
+            notification.standUpTimer()
         }
         
         // Don't show the icon in the Dock
@@ -82,7 +89,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.terminate(nil)
     }
     
-    func applicationWillTerminate(_ aNotification: Notification) {
+    func applicationWillTerminate(_ aNotification: AppKit.Notification) {
         
     }
     
@@ -137,4 +144,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.activate(ignoringOtherApps: true)
     }
     
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notificaton: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        return completionHandler([.list, .sound])
+    }
 }
